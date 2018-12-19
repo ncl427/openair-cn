@@ -1,0 +1,209 @@
+Scanning dependencies of target SGW
+[  0%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/pgw_config.c.o
+[  0%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/pgw_lite_paa.c.o
+[  0%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/pgw_pcef_emulation.c.o
+[  0%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/pgw_pco.c.o
+[  0%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/pgw_procedures.c.o
+[ 11%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/s11_causes.c.o
+[ 11%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/sgw_config.c.o
+[ 11%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/sgw_context_manager.c.o
+[ 11%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/sgw_handlers.c.o
+/root/openair-cn/SRC/SGW/sgw_handlers.c: In function 'check_spgwu_state':
+/root/openair-cn/SRC/SGW/sgw_handlers.c:1258:5: warning: implicit declaration of function 'close' [-Wimplicit-function-declaration]
+     close(fd);
+     ^
+[ 11%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/sgw_task.c.o
+/root/openair-cn/SRC/SGW/sgw_task.c: In function 'sgw_init':
+/root/openair-cn/SRC/SGW/sgw_task.c:233:57: warning: passing argument 2 of 'itti_create_task' from incompatible pointer type [-Wincompatible-pointer-types]
+   if (itti_create_task (TASK_SPGWC_REGISTRATION_SERVER, &spgwc_registration_server, NULL) < 0) {
+                                                         ^
+In file included from /root/openair-cn/SRC/SGW/sgw_task.c:51:0:
+/root/openair-cn/SRC/COMMON/ITTI/intertask_interface.h:159:5: note: expected 'void * (*)(void *)' but argument is of type 'void * (*)(void)'
+ int itti_create_task(task_id_t task_id,
+     ^
+/root/openair-cn/SRC/SGW/sgw_task.c: In function 'spgwc_registration_server':
+/root/openair-cn/SRC/SGW/sgw_task.c:283:7: warning: 'return' with no value, in function returning non-void
+       return;
+       ^
+/root/openair-cn/SRC/SGW/sgw_task.c:287:3: warning: implicit declaration of function 'init_ue_tunnel_info_table' [-Wimplicit-function-declaration]
+   init_ue_tunnel_info_table();
+   ^
+/root/openair-cn/SRC/SGW/sgw_task.c:302:12: warning: return makes pointer from integer without a cast [-Wint-conversion]
+     return RETURNerror;
+            ^
+/root/openair-cn/SRC/SGW/sgw_task.c:309:12: warning: return makes pointer from integer without a cast [-Wint-conversion]
+     return RETURNerror;
+            ^
+[ 11%] Building C object CMakeFiles/SGW.dir/root/openair-cn/SRC/SGW/spgw_config.c.o
+[ 11%] Linking C static library libSGW.a
+[ 11%] Built target SGW
+Scanning dependencies of target GTPV1U
+[ 11%] Building C object CMakeFiles/GTPV1U.dir/root/openair-cn/SRC/GTPV1-U/gtpv1u_task.c.o
+[ 11%] Building C object CMakeFiles/GTPV1U.dir/root/openair-cn/SRC/GTPV1-U/gtpv1u_teid_pool.c.o
+[ 11%] Building C object CMakeFiles/GTPV1U.dir/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c.o
+In file included from /root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:16:0:
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c: In function 'gtp_mod_kernel_tunnel_add_at_spgwu':
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:216:29: warning: format '%lu' expects argument of type 'long unsigned int', but argument 7 has type 'struct in_addr' [-Wformat=]
+   OAILOG_DEBUG (LOG_GTPV1U, "         ue = %lu, %s\n", ue, inet_ntoa(ue));
+                             ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:217:29: warning: format '%lu' expects argument of type 'long unsigned int', but argument 7 has type 'struct in_addr' [-Wformat=]
+   OAILOG_DEBUG (LOG_GTPV1U, "         enb = %lu, %s\n", enb, inet_ntoa(enb));
+                             ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:218:29: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+   OAILOG_DEBUG (LOG_GTPV1U, "         i_tei = %zu\n", i_tei);
+                             ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:219:29: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+   OAILOG_DEBUG (LOG_GTPV1U, "         o_tei = %zu\n", o_tei);
+                             ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:243:20: warning: format '%lu' expects argument of type 'long unsigned int', but argument 3 has type 'struct in_addr' [-Wformat=]
+   sprintf(message, "add;%lu;%lu;%zu;%zu;%u;", ue, enb, i_tei, o_tei, bearer_id);
+                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:243:20: warning: format '%lu' expects argument of type 'long unsigned int', but argument 4 has type 'struct in_addr' [-Wformat=]
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:243:20: warning: format '%zu' expects argument of type 'size_t', but argument 5 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:243:20: warning: format '%zu' expects argument of type 'size_t', but argument 6 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+In file included from /root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:16:0:
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c: In function 'gtp_mod_kernel_tunnel_del_at_spgwu':
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:282:29: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+   OAILOG_DEBUG (LOG_GTPV1U, "         i_tei = %zu\n", i_tei);
+                             ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:283:29: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+   OAILOG_DEBUG (LOG_GTPV1U, "         o_tei = %zu\n", o_tei);
+                             ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:311:20: warning: format '%zu' expects argument of type 'size_t', but argument 3 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+   sprintf(message, "del;%zu;%zu;", i_tei, o_tei);
+                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:311:20: warning: format '%zu' expects argument of type 'size_t', but argument 4 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+In file included from /root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:16:0:
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c: In function 'add_ue_tunnel':
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:377:31: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+     OAILOG_DEBUG (LOG_GTPV1U, "         i_tei = %zu\n", i_tei);
+                               ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:378:31: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+     OAILOG_DEBUG (LOG_GTPV1U, "         o_tei = %zu\n", o_tei);
+                               ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c: In function 'del_ue_tunnel':
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:401:31: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+     OAILOG_DEBUG (LOG_GTPV1U, "         i_tei = %zu\n", i_tei);
+                               ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:402:31: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+     OAILOG_DEBUG (LOG_GTPV1U, "         o_tei = %zu\n", o_tei);
+                               ^
+/root/openair-cn/SRC/UTILS/log.h:311:148: note: in definition of macro 'OAILOG_DEBUG'
+ #      define OAILOG_DEBUG(pRoTo, ...)                                  do { log_message(NULL, OAILOG_LEVEL_DEBUG,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief debug informations */
+                                                                                                                                                    ^
+In file included from /root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:16:0:
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:410:31: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+     OAILOG_ERROR (LOG_GTPV1U, "         i_tei = %zu\n", i_tei);
+                               ^
+/root/openair-cn/SRC/UTILS/log.h:298:148: note: in definition of macro 'OAILOG_ERROR'
+ #    define OAILOG_ERROR(pRoTo, ...)                                    do { log_message(NULL, OAILOG_LEVEL_ERROR,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief error conditions */
+                                                                                                                                                    ^
+/root/openair-cn/SRC/GTPV1-U/gtp_mod_kernel.c:411:31: warning: format '%zu' expects argument of type 'size_t', but argument 7 has type 'uint32_t {aka unsigned int}' [-Wformat=]
+     OAILOG_ERROR (LOG_GTPV1U, "         o_tei = %zu\n", o_tei);
+                               ^
+/root/openair-cn/SRC/UTILS/log.h:298:148: note: in definition of macro 'OAILOG_ERROR'
+ #    define OAILOG_ERROR(pRoTo, ...)                                    do { log_message(NULL, OAILOG_LEVEL_ERROR,    pRoTo, __FILE__, __LINE__, ##__VA_ARGS__); } while(0) /*!< \brief error conditions */
+                                                                                                                                                    ^
+[ 22%] Linking C static library libGTPV1U.a
+[ 22%] Built target GTPV1U
+Scanning dependencies of target CN_UTILS
+[ 22%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/async_system.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/conversions.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/dynamic_memory_check.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/enum_string.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/mcc_mnc_itu.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/pid_file.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/shared_ts_log.c.o
+[ 33%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/TLVEncoder.c.o
+[ 44%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/TLVDecoder.c.o
+[ 44%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/xml2_wrapper.c.o
+[ 44%] Building C object CMakeFiles/CN_UTILS.dir/root/openair-cn/SRC/UTILS/log.c.o
+[ 44%] Linking C static library libCN_UTILS.a
+[ 44%] Built target CN_UTILS
+Scanning dependencies of target MSC
+[ 44%] Building C object CMakeFiles/MSC.dir/root/openair-cn/SRC/UTILS/MSC/msc.c.o
+[ 44%] Linking C static library libMSC.a
+[ 44%] Built target MSC
+Scanning dependencies of target GTPV2C
+[ 44%] Building C object CMakeFiles/GTPV2C.dir/root/openair-cn/SRC/GTPV2-C/nwgtpv2c-0.11/src/NwGtpv2cTrxn.c.o
+[ 44%] Building C object CMakeFiles/GTPV2C.dir/root/openair-cn/SRC/GTPV2-C/nwgtpv2c-0.11/src/NwGtpv2cTunnel.c.o
+[ 44%] Building C object CMakeFiles/GTPV2C.dir/root/openair-cn/SRC/GTPV2-C/nwgtpv2c-0.11/src/NwGtpv2cMsg.c.o
+[ 44%] Building C object CMakeFiles/GTPV2C.dir/root/openair-cn/SRC/GTPV2-C/nwgtpv2c-0.11/src/NwGtpv2cMsgIeParseInfo.c.o
+[ 44%] Building C object CMakeFiles/GTPV2C.dir/root/openair-cn/SRC/GTPV2-C/nwgtpv2c-0.11/src/NwGtpv2cMsgParser.c.o
+[ 55%] Building C object CMakeFiles/GTPV2C.dir/root/openair-cn/SRC/GTPV2-C/nwgtpv2c-0.11/src/NwGtpv2c.c.o
+[ 55%] Linking C static library libGTPV2C.a
+[ 55%] Built target GTPV2C
+Scanning dependencies of target BSTR
+[ 55%] Building C object CMakeFiles/BSTR.dir/root/openair-cn/SRC/UTILS/BSTR/bstraux.c.o
+[ 55%] Building C object CMakeFiles/BSTR.dir/root/openair-cn/SRC/UTILS/BSTR/bstrlib.c.o
+[ 55%] Building C object CMakeFiles/BSTR.dir/root/openair-cn/SRC/UTILS/BSTR/buniutil.c.o
+[ 55%] Building C object CMakeFiles/BSTR.dir/root/openair-cn/SRC/UTILS/BSTR/utf8util.c.o
+[ 55%] Linking C static library libBSTR.a
+[ 55%] Built target BSTR
+Scanning dependencies of target HASHTABLE
+[ 55%] Building C object CMakeFiles/HASHTABLE.dir/root/openair-cn/SRC/UTILS/HASHTABLE/hashtable.c.o
+[ 55%] Building C object CMakeFiles/HASHTABLE.dir/root/openair-cn/SRC/UTILS/HASHTABLE/obj_hashtable.c.o
+[ 55%] Linking C static library libHASHTABLE.a
+[ 55%] Built target HASHTABLE
+Scanning dependencies of target 3GPP_TYPES
+[ 55%] Building C object CMakeFiles/3GPP_TYPES.dir/root/openair-cn/SRC/COMMON/3gpp_24.008_cc_ies.c.o
+[ 55%] Building C object CMakeFiles/3GPP_TYPES.dir/root/openair-cn/SRC/COMMON/3gpp_24.008_common_ies.c.o
+[ 55%] Building C object CMakeFiles/3GPP_TYPES.dir/root/openair-cn/SRC/COMMON/3gpp_24.008_mm_ies.c.o
+[ 55%] Building C object CMakeFiles/3GPP_TYPES.dir/root/openair-cn/SRC/COMMON/3gpp_24.008_gmm_ies.c.o
+[ 55%] Building C object CMakeFiles/3GPP_TYPES.dir/root/openair-cn/SRC/COMMON/3gpp_24.008_gprs_common_ies.c.o
+[ 55%] Building C object CMakeFiles/3GPP_TYPES.dir/root/openair-cn/SRC/COMMON/3gpp_24.008_sm_ies.c.o
+[ 66%] Linking C static library lib3GPP_TYPES.a
+[ 66%] Built target 3GPP_TYPES
+Scanning dependencies of target ITTI
+[ 66%] Building C object CMakeFiles/ITTI.dir/root/openair-cn/SRC/COMMON/ITTI/intertask_interface.c.o
+[ 66%] Building C object CMakeFiles/ITTI.dir/root/openair-cn/SRC/COMMON/ITTI/backtrace.c.o
+[ 77%] Building C object CMakeFiles/ITTI.dir/root/openair-cn/SRC/COMMON/ITTI/memory_pools.c.o
+[ 77%] Building C object CMakeFiles/ITTI.dir/root/openair-cn/SRC/COMMON/ITTI/signals.c.o
+[ 77%] Building C object CMakeFiles/ITTI.dir/root/openair-cn/SRC/COMMON/ITTI/timer.c.o
+[ 77%] Linking C static library libITTI.a
+[ 77%] Built target ITTI
+Scanning dependencies of target UDP_SERVER
+[ 77%] Building C object CMakeFiles/UDP_SERVER.dir/root/openair-cn/SRC/UDP/udp_primitives_server.c.o
+[ 77%] Linking C static library libUDP_SERVER.a
+[ 77%] Built target UDP_SERVER
+Scanning dependencies of target S11_SGW
+[ 77%] Building C object CMakeFiles/S11_SGW.dir/root/openair-cn/SRC/S11/s11_common.c.o
+[ 77%] Building C object CMakeFiles/S11_SGW.dir/root/openair-cn/SRC/S11/s11_ie_formatter.c.o
+[ 88%] Building C object CMakeFiles/S11_SGW.dir/root/openair-cn/SRC/S11/s11_sgw.c.o
+[ 88%] Building C object CMakeFiles/S11_SGW.dir/root/openair-cn/SRC/S11/s11_sgw_session_manager.c.o
+[ 88%] Building C object CMakeFiles/S11_SGW.dir/root/openair-cn/SRC/S11/s11_sgw_bearer_manager.c.o
+[ 88%] Linking C static library libS11_SGW.a
+[ 88%] Built target S11_SGW
+Scanning dependencies of target spgw
+[ 88%] Building C object CMakeFiles/spgw.dir/root/openair-cn/SRC/OAI_SGW/oai_sgw.c.o
+[ 88%] Building C object CMakeFiles/spgw.dir/root/openair-cn/SRC/COMMON/common_types.c.o
+[ 88%] Building C object CMakeFiles/spgw.dir/root/openair-cn/SRC/COMMON/itti_free_defined_msg.c.o
+[100%] Linking C executable spgw
+[100%] Built target spgw

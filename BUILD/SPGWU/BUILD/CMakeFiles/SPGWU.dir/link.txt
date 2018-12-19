@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSPGWU.a  CMakeFiles/SPGWU.dir/root/openair-cn/SRC/SPGWU/spgwu_task.c.o
+/usr/bin/ranlib libSPGWU.a

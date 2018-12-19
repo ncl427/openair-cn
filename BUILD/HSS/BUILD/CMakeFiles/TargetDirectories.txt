@@ -1,0 +1,8 @@
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/oai_hss.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/hss_utils.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/rebuild_cache.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/hss_access_restriction.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/hss_auc.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/edit_cache.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/hss_db.dir
+/root/openair-cn/BUILD/HSS/BUILD/CMakeFiles/hss_s6a.dir
