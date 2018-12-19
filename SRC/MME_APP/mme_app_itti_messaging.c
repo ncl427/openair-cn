@@ -2,9 +2,9 @@
  * Licensed to the OpenAirInterface (OAI) Software Alliance under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
- * The OpenAirInterface Software Alliance licenses this file to You under 
+ * The OpenAirInterface Software Alliance licenses this file to You under
  * the Apache License, Version 2.0  (the "License"); you may not use this file
- * except in compliance with the License.  
+ * except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -18,13 +18,6 @@
  * For more information about the OpenAirInterface (OAI) Software Alliance:
  *      contact@openairinterface.org
  */
-
-/*! \file mme_app_itti_messaging.c
-  \brief
-  \author Sebastien ROUX, Lionel Gauthier
-  \company Eurecom
-  \email: lionel.gauthier@eurecom.fr
-*/
 
 #include <stdio.h>
 #include <string.h>
@@ -140,10 +133,11 @@ int mme_app_send_s11_create_session_req (struct ue_mm_context_s *const ue_mm_con
   MessageDef                             *message_p = NULL;
   itti_s11_create_session_request_t      *session_request_p = NULL;
   int                                     rc = RETURNok;
+  int64_t                                 argu = 0;
 
   DevAssert (ue_mm_context );
   OAILOG_DEBUG (LOG_MME_APP, "Handling imsi " IMSI_64_FMT "\n", ue_mm_context->emm_context._imsi64);
-
+  argu = ue_mm_context->emm_context._imsi64;
   if (ue_mm_context->subscriber_status != SS_SERVICE_GRANTED) {
     /*
      * HSS rejected the bearer creation or roaming is not allowed for this
@@ -268,7 +262,8 @@ int mme_app_send_s11_create_session_req (struct ue_mm_context_s *const ue_mm_con
   // Actually, since S and P GW are bundled together, there is no PGW selection (based on PGW id in ULA, or DNS query based on FQDN)
   if (1) {
     // TODO prototype may change
-    mme_app_select_sgw(&ue_mm_context->emm_context.originating_tai, &session_request_p->peer_ip);
+    //Added a third argument, to pass the data of the IMSI
+    mme_app_select_sgw(&ue_mm_context->emm_context.originating_tai, &session_request_p->peer_ip, argu);
   }
 
   session_request_p->serving_network.mcc[0] = ue_mm_context->e_utran_cgi.plmn.mcc_digit1;

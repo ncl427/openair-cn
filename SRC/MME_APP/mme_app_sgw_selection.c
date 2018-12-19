@@ -33,6 +33,7 @@
 #include <inttypes.h>
 #include <netinet/in.h>
 
+
 #include "bstrlib.h"
 
 #include "log.h"
@@ -44,7 +45,8 @@
 #include "mme_app_edns_emulation.h"
 
 //------------------------------------------------------------------------------
-void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_addr)
+//void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_addr)
+void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_addr, int64_t imsi)
 {
 
   // see in 3GPP TS 29.303 version 10.5.0 Release 10:
@@ -53,6 +55,7 @@ void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_a
 
   // do it the simplest way for now
   //
+
   char tmp[8];
   bstring application_unique_string = bfromcstr("tac-lb");
   if (0 < snprintf(tmp, 8, "%02x", tai->tac & 0x00FF)) {
@@ -89,12 +92,27 @@ void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_a
   bcatcstr(application_unique_string, ".3gppnetwork.org");
 
   struct in_addr* entry = mme_app_edns_get_sgw_entry(application_unique_string);
-
+//Code added for interaction with the  python API that calls the NSSF
+  char cooman[128];
+  char imsichar[256] = {0};
+  sprintf(imsichar, "%"PRId64"\n", imsi);
+  snprintf(cooman, sizeof(cooman), "~/./a.out pyapi nssf %s", imsichar);
+  system(cooman);
+  char ch[100];
+// As we are limited with return values of functions, the SGW Id is saved in a text file
+// This information is used for assignment into a struct
+  FILE *file;
+  file = fopen("sgw.txt","r");
+  while(fgets(ch, sizeof(ch),file)!= NULL)
+//  printf("%s", ch);
   if (entry) {
-    sgw_in_addr->s_addr = entry->s_addr;
+    inet_aton(ch, &*sgw_in_addr);
   }
   OAILOG_DEBUG (LOG_MME_APP, "SGW lookup %s returned %s\n", application_unique_string->data, inet_ntoa (*sgw_in_addr));
+  OAILOG_DEBUG (LOG_MME_APP, "IMSI of UE IS: " IMSI_64_FMT "\n", imsi);
   bdestroy_wrapper(&application_unique_string);
+  fclose(file);
+
   return;
 
 lookup_error:
