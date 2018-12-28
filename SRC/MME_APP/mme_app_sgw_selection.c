@@ -96,18 +96,21 @@ void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_a
   char cooman[128];
   char imsichar[256] = {0};
   sprintf(imsichar, "%"PRId64"\n", imsi);
-  snprintf(cooman, sizeof(cooman), "~/home/ubuntu/nssfapi/./a.out pyapi nssf %s", imsichar);
+  snprintf(cooman, sizeof(cooman), "/home/ubuntu/nssfapi/./a.out pyapi nssf %s", imsichar);
   system(cooman);
   char ch[100];
 // As we are limited with return values of functions, the SGW Id is saved in a text file
 // This information is used for assignment into a struct
   FILE *file;
-  file = fopen("~/home/ubuntu/nssfapi/sgw.txt","r");
+  file = fopen("/home/ubuntu/nssfapi/sgw.txt","r");
   while(fgets(ch, sizeof(ch),file)!= NULL)
 //  printf("%s", ch);
-  if (entry) {
-    inet_aton(ch, &*sgw_in_addr);
-  }
+//  if (entry) {
+  struct sockaddr_in sgw;
+
+  inet_aton(ch, &sgw.sin_addr.s_addr);
+  sgw_in_addr->s_addr = sgw.sin_addr.s_addr;
+//  }
   OAILOG_DEBUG (LOG_MME_APP, "SGW lookup %s returned %s\n", application_unique_string->data, inet_ntoa (*sgw_in_addr));
   OAILOG_DEBUG (LOG_MME_APP, "IMSI of UE IS: " IMSI_64_FMT "\n", imsi);
   bdestroy_wrapper(&application_unique_string);
