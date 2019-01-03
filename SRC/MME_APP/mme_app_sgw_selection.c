@@ -95,6 +95,7 @@ void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_a
 //Code added for interaction with the  python API that calls the NSSF
   char cooman[128];
   char imsichar[256] = {0};
+  struct sockaddr_in sgw;  //New struct that will handle the sgw address
   sprintf(imsichar, "%"PRId64"\n", imsi);
   snprintf(cooman, sizeof(cooman), "/home/ubuntu/nssfapi/./a.out pyapi nssf %s", imsichar);
   system(cooman);
@@ -106,7 +107,7 @@ void mme_app_select_sgw(const tai_t * const tai, struct in_addr * const sgw_in_a
   while(fgets(ch, sizeof(ch),file)!= NULL)
 //  printf("%s", ch);
 //  if (entry) {
-  struct sockaddr_in sgw;
+
 
   inet_aton(ch, &sgw.sin_addr.s_addr);
   sgw_in_addr->s_addr = sgw.sin_addr.s_addr;
